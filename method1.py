@@ -21,12 +21,23 @@ data = [
 [0,0,0,0,0,0,0,0],
 ]
 
+asn = [ [1,0],[1,0],[2,0],[2,0],[3,0],[3,0],[4,0],[4,0],[5,0],[5,0],[6,0],[6,0],[7,0],[7,0],[8,0],[8,0] ]
 name = [i for i in range(16)]
-pdsum = [0,0,0,0,0,0,0,0]
 
-for i in people:
-  for j in range(8):
-    pdsum[j] += i[j]
+    
+def find(data):
+  pdsum = [0,0,0,0,0,0,0,0]
+  for i in data:
+    for j in range(8):
+      pdsum[j] += i[j]
+    
+  pdmax=0
+  for i in range(8):
+    if pdsum[pdmax]<pdsum[i]:
+      pdmax=i
+  return pdmax
+      
+    
 
 print(pdsum)
 
